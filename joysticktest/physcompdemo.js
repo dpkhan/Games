@@ -79,60 +79,22 @@ function rightHandlers(name) {
 }
 	
 function startL(event){
-	xpos.value = "start";			
-
+	event.preventDefault();
 	const touches = event.changedTouches;
-    for (let i = 0; i < touches.length; i++) {
-		if(touches[i].target == leftJ){
-			var rect = touches[i].target.getBoundingClientRect();
-			lshiftX = touches[i].event.clientX - rect.left; //x position within the element.
-			lshiftY = touches[i].event.clientY - rect.top;  //y position within the element.
-			draggingL == touches[i].identifier;
+	for (let i = 0; i < touches.length; i++) {
+		if (touches[i] == leftJ){
+   			xpos.value = "touch";			
 		}
 	}
+
 }
 
 function moveL(event){
-	if (draggingL == event.target){
-	const touches = event.changedTouches;
-    for (let i = 0; i < touches.length; i++) {
-		if(touches[i].identifier == draggingL){
-		  var rect = touches[i].target.getBoundingClientRect();
-		  var X = touches[i].pageX;
-		  var Y = touches[i].pageY;
-		  var newX = X-lshiftX;
-		  var newY = Y-lshiftY;
-
-		  if (newX < lx1){
-			  newX = lx1;
-		   }
-
-		   if (newY < ly1){
-			  newY = ly1;
-		   }
-
-		   if ((newX + jlW) > lx2){
-			   newX = lx2-jlW;
-		   }
-
-		   if (Y >  ly2){
-			  newY = ly2;
-		   }
-
-		   leftJ.style.left = (newX ) + 'px';
-		//   event.target.style.top = newY - shiftY + 'px';
-		   xpos.value = "moveX :" + X + " newX: " + newX + "\nshifted: " + lshiftX;			
-			
-		}
-	}
-	}
 	
 }
 
 function endL(event){
-	event.preventDefault();
-	draggingL = "";
-	leftJ.style.left = jlL + 'px';
+	
 }
 
 function startR(event){
