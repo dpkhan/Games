@@ -102,6 +102,7 @@ function startL(event){
 
 function moveL(event){
 	event.preventDefault();
+	xpos.value = "touch move";
 	const touches = event.changedTouches;
 	for (let i = 0; i < touches.length; i++) {
 		if (touches[i].target == leftJ){
