@@ -80,6 +80,8 @@ function rightHandlers(name) {
 	
 function startL(event){
 	event.preventDefault();
+	xpos.value = "start";			
+
 	const touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
 		if(touches[i].target == leftJ){
