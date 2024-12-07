@@ -93,7 +93,7 @@ function startL(event){
 }
 
 function moveL(event){
-	if (draggingL == event.target){}
+	if (draggingL == event.target){
 	const touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
 		if(touches[i].identifier == draggingL){
