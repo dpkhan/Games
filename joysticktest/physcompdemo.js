@@ -79,7 +79,6 @@ function rightHandlers(name) {
 }
 	
 function startL(event){
-	event.preventDefault();
 	xpos.value = "start";			
 
 	const touches = event.changedTouches;
@@ -94,7 +93,6 @@ function startL(event){
 }
 
 function moveL(event){
-	event.preventDefault();
 	if (draggingL == event.target){}
 	const touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
