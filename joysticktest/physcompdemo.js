@@ -85,8 +85,8 @@ function startL(event){
     for (let i = 0; i < touches.length; i++) {
 		if(touches[i].target == leftJ){
 			var rect = touches[i].target.getBoundingClientRect();
-			lshiftX = touches[i]event.clientX - rect.left; //x position within the element.
-			lshiftY = touches[i]event.clientY - rect.top;  //y position within the element.
+			lshiftX = touches[i].event.clientX - rect.left; //x position within the element.
+			lshiftY = touches[i].event.clientY - rect.top;  //y position within the element.
 			draggingL == touches[i].identifier;
 		}
 	}
