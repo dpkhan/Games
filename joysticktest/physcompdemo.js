@@ -179,6 +179,7 @@ function dragR(event){
 	 //   event.target.style.top = newY - shiftY + 'px';
    xpos.value = "ypos :" + Y + " newY: " + newY + "\nshifted: " + rshiftY;
  }
+xpos.value = "ypos :" + Y + " newY: " + newY + "\nshifted: " + rshiftY;
 }
 
 function dragStartR(event){
