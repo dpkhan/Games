@@ -93,6 +93,7 @@ function startL(event){
 
 function moveL(event){
 	event.preventDefault();
+	if (draggingL == event.target){}
 	const touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
 		if(touches[i].identifier == draggingL){
@@ -120,9 +121,10 @@ function moveL(event){
 
 		   leftJ.style.left = (newX ) + 'px';
 		//   event.target.style.top = newY - shiftY + 'px';
-		   xpos.value = "xpos :" + X + " newX: " + newX + "\nshifted: " + lshiftX;			
+		   xpos.value = "moveX :" + X + " newX: " + newX + "\nshifted: " + lshiftX;			
 			
 		}
+	}
 	}
 	
 }
