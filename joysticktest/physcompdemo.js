@@ -89,7 +89,7 @@ function startL(event){
 	event.preventDefault();
 	const touches = event.changedTouches;
 	for (let i = 0; i < touches.length; i++) {
-		if (touches[i].target == leftJ){
+		if (touches[i].target.id == leftJ){
    			xpos.value = "touch2...";			
 		}
 	}
