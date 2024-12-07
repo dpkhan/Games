@@ -53,11 +53,11 @@ function allDragEnd(event){
 function leftHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
-  el.ontouchstart = dragStartL;
-  el.ontouchmove = dragL;
+  el.ontouchstart = startL;
+  el.ontouchmove = moveL;
   // Use same handler for touchcancel and touchend
-  el.ontouchcancel = dragEndL;
-  el.ontouchend = dragEndL;
+  el.ontouchcancel = endL;
+  el.ontouchend = endL;
   el.onmousedown = dragStartL;
   el.onmouseup = dragEndL;
   el.onmousemove = dragL;
@@ -67,11 +67,11 @@ function leftHandlers(name) {
 function rightHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
-  el.ontouchstart = dragStartR;
-  el.ontouchmove = dragR;
+  el.ontouchstart = startR;
+  el.ontouchmove = moveR;
   // Use same handler for touchcancel and touchend
-  el.ontouchcancel = dragEndR;
-  el.ontouchend = dragEndR;
+  el.ontouchcancel = endR;
+  el.ontouchend = endR;
   el.onmousedown = dragStartR;
   el.onmouseup = dragEndR;
   el.onmousemove = dragR;
@@ -79,15 +79,58 @@ function rightHandlers(name) {
 }
 	
 function startL(event){
-	
+	event.preventDefault();
+	const touches = event.changedTouches;
+    for (let i = 0; i < touches.length; i++) {
+		if(touches[i].target == leftJ){
+			var rect = touches[i].target.getBoundingClientRect();
+			lshiftX = touches[i]event.clientX - rect.left; //x position within the element.
+			lshiftY = touches[i]event.clientY - rect.top;  //y position within the element.
+			draggingL == touches[i].identifier;
+		}
+	}
 }
 
 function moveL(event){
+	event.preventDefault();
+	const touches = event.changedTouches;
+    for (let i = 0; i < touches.length; i++) {
+		if(touches[i].identifier == draggingL){
+		  var rect = touches[i].target.getBoundingClientRect();
+		  var X = touches[i].pageX;
+		  var Y = touches[i].pageY;
+		  var newX = X-lshiftX;
+		  var newY = Y-lshiftY;
+
+		  if (newX < lx1){
+			  newX = lx1;
+		   }
+
+		   if (newY < ly1){
+			  newY = ly1;
+		   }
+
+		   if ((newX + jlW) > lx2){
+			   newX = lx2-jlW;
+		   }
+
+		   if (Y >  ly2){
+			  newY = ly2;
+		   }
+
+		   leftJ.style.left = (newX ) + 'px';
+		//   event.target.style.top = newY - shiftY + 'px';
+		   xpos.value = "xpos :" + X + " newX: " + newX + "\nshifted: " + lshiftX;			
+			
+		}
+	}
 	
 }
 
 function endL(event){
-	
+	event.preventDefault();
+	draggingL = "";
+	leftJ.style.left = jlL + 'px';
 }
 
 function startR(event){
@@ -179,7 +222,6 @@ function dragR(event){
 	 //   event.target.style.top = newY - shiftY + 'px';
    xpos.value = "ypos :" + Y + " newY: " + newY + "\nshifted: " + rshiftY;
  }
-xpos.value = "ypos :" + Y + " newY: " + newY + "\nshifted: " + rshiftY;
 }
 
 function dragStartR(event){
@@ -189,7 +231,7 @@ function dragStartR(event){
 
 	if (draggingR == ""){
 		draggingR = event.target;
-		xpos.value = "touchX: " + rshiftX + "touchY: " + rshiftY;
+		xpos.value = "shiftX: " + rshiftX + "shiftY: " + rshiftY;
 	}
 }
 //xpos.value = "xpos :";
