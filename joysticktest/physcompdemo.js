@@ -189,7 +189,7 @@ function dragStartR(event){
 
 	if (draggingR == ""){
 		draggingR = event.target;
-		xpos.value = "shiftX: " + rshiftX + "shiftY: " + rshiftY;
+		xpos.value = "touchX: " + rshiftX + "touchY: " + rshiftY;
 	}
 }
 //xpos.value = "xpos :";
