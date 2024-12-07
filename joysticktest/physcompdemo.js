@@ -54,8 +54,12 @@ function leftHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
   el.addEventListener("touchstart", startL);	
-//  el.ontouchstart = startL;
-  el.ontouchmove = moveL;
+  el.addEventListener("touchmove", moveL);	
+  el.addEventListener("touchend", endL);	
+  el.addEventListener("touchcancel", endL);	
+
+	//  el.ontouchstart = startL;
+//  el.ontouchmove = moveL;
   // Use same handler for touchcancel and touchend
   el.ontouchcancel = endL;
   el.ontouchend = endL;
@@ -85,7 +89,7 @@ function startL(event){
 	event.preventDefault();
 	const touches = event.changedTouches;
 	for (let i = 0; i < touches.length; i++) {
-		if (touches[i] == leftJ){
+		if (touches[i].target == leftJ){
    			xpos.value = "touch2...";			
 		}
 	}
