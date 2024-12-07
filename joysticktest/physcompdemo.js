@@ -134,7 +134,6 @@ function moveL(event){
 			 }
 		
 		}
-	}
 
 }
 
