@@ -86,6 +86,7 @@ function rightHandlers(name) {
 function startL(event){
 	event.preventDefault();
 	const touches = event.changedTouches;
+	xpos.value = "touch start";
 	for (let i = 0; i < touches.length; i++) {
 		if (touches[i].target.id == leftJ){
 			var rect = touches[i].target.getBoundingClientRect();
@@ -93,7 +94,7 @@ function startL(event){
 			lshiftY = touches[i].clientY - rect.top;  //y position within the element.
 
 			draggingL = touches[i].target.id;
-			xpos.value = "touch start";
+			xpos.value = "touch ids";
 		}
 	}
 }
