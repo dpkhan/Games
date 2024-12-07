@@ -53,7 +53,8 @@ function allDragEnd(event){
 function leftHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
-  el.ontouchstart = startL;
+  el.addEventListener("touchstart", startL);	
+//  el.ontouchstart = startL;
   el.ontouchmove = moveL;
   // Use same handler for touchcancel and touchend
   el.ontouchcancel = endL;
