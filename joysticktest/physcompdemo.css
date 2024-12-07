@@ -18,7 +18,7 @@
   display: block;
 }
 .left {
-  width: 60vw;
+  width: 45vw;
   aspect-ratio: 1 / 1;
   border: dashed;
   border-color: red;
@@ -42,7 +42,7 @@
   align-items: center;	
 }
 .right {
-  width: 60vw;
+  width: 45vw;
   aspect-ratio: 1 / 1;
   background-color: #ffcccc;
   border: dashed;
