@@ -84,16 +84,17 @@ function rightHandlers(name) {
 }
 	
 function startL(event){
+	info.value="touch1";
 	event.preventDefault();
 	const touches = event.changedTouches;
-	xpos.value = "touch start";
+//	xpos.value = "touch start";
 	for (let i = 0; i < touches.length; i++) {
-		if (touches[i].target.id == leftJ){
+		if (touches[i].target == leftJ){
 			var rect = touches[i].target.getBoundingClientRect();
 			lshiftX = touches[i].clientX - rect.left; //x position within the element.
 			lshiftY = touches[i].clientY - rect.top;  //y position within the element.
 
-			draggingL = touches[i].target.id;
+			draggingL = touches[i].target;
 			xpos.value = "touch ids";
 		}
 	}
