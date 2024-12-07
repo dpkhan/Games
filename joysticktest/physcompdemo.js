@@ -53,11 +53,11 @@ function allDragEnd(event){
 function leftHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
-  el.ontouchstart = startL;
-  el.ontouchmove = moveL;
+  el.ontouchstart = dragStartL;
+  el.ontouchmove = dragL;
   // Use same handler for touchcancel and touchend
-  el.ontouchcancel = endL;
-  el.ontouchend = endL;
+  el.ontouchcancel = dragEndL;
+  el.ontouchend = dragEndL;
   el.onmousedown = dragStartL;
   el.onmouseup = dragEndL;
   el.onmousemove = dragL;
@@ -67,11 +67,11 @@ function leftHandlers(name) {
 function rightHandlers(name) {
   // Install event handlers for the given element
   const el = document.getElementById(name);
-  el.ontouchstart = startR;
-  el.ontouchmove = moveR;
+  el.ontouchstart = dragStartR;
+  el.ontouchmove = dragR;
   // Use same handler for touchcancel and touchend
-  el.ontouchcancel = endR;
-  el.ontouchend = endR;
+  el.ontouchcancel = dragEndR;
+  el.ontouchend = dragEndR;
   el.onmousedown = dragStartR;
   el.onmouseup = dragEndR;
   el.onmousemove = dragR;
