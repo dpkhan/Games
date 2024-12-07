@@ -92,9 +92,8 @@ function startL(event){
 			lshiftX = touches[i].clientX - rect.left; //x position within the element.
 			lshiftY = touches[i].clientY - rect.top;  //y position within the element.
 
-			if (draggingL == ""){
-				draggingL = touches[i].target;
-				xpos.value = "shiftX: " + lshiftX + "shiftY: " + lshiftY;
+			draggingL = touches[i].target;
+			xpos.value = "touch start"
 			}
 		}
 	}
