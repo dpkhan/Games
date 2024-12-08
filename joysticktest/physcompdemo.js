@@ -42,11 +42,36 @@ window.addEventListener("resize",(event) => {
 	jrW = rightJ.getBoundingClientRect().width;	
 	
 	leftJ.style.left = jlL + 'px';
+	leftJ.style.top = jlT + 'px';
 	rightJ.style.left = jrL + 'px';
 	rightJ.style.top = jrT + 'px';
 
 	
-});	
+});
+	
+screen.orientation.addEventListener("change", (event) => {
+
+	lx1 = lefty.getBoundingClientRect().left;
+	lx2 = lefty.getBoundingClientRect().right;
+	ly1 = lefty.getBoundingClientRect().top;
+	ly2 = lefty.getBoundingClientRect().bottom;
+	rx1 = right.getBoundingClientRect().left;
+	rx2 = right.getBoundingClientRect().right;
+	ry1 = right.getBoundingClientRect().top + window.pageYOffset;
+	ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
+	jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
+	jlL = leftJ.getBoundingClientRect().left;
+	jlW = leftJ.getBoundingClientRect().width;
+	jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
+	jrL = rightJ.getBoundingClientRect().left;
+	jrW = rightJ.getBoundingClientRect().width;	
+	
+	leftJ.style.left = jlL + 'px';
+	leftJ.style.top = jlT + 'px';
+	rightJ.style.left = jrL + 'px';
+	rightJ.style.top = jrT + 'px';
+	
+});
 	
 var draggingL = "";
 var lshiftX = 0;
