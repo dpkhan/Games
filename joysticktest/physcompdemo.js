@@ -253,7 +253,9 @@ function moveR(event){
 }
 
 function endR(event){
-	
+	draggingR = "";
+	event.target.style.left = jrL + 'px';
+	event.target.style.top = jrT + 'px';
 }
 
 function dragL(event){  
