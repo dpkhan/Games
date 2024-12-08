@@ -23,6 +23,7 @@ var jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
 var jrL = rightJ.getBoundingClientRect().left;
 var jrW = rightJ.getBoundingClientRect().width;	
 
+	/*
 	
 window.addEventListener("resize",(event) => {
 
@@ -72,6 +73,8 @@ screen.orientation.addEventListener("change", (event) => {
 	rightJ.style.top = jrT + 'px';
 	
 });
+
+*/
 	
 var draggingL = "";
 var lshiftX = 0;
