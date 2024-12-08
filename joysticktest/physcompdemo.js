@@ -28,20 +28,20 @@ var jrL = (rx1+rx2-jrW)/2;
 	
 window.addEventListener("resize",(event) => {
 
-	lx1 = lefty.getBoundingClientRect().left;
-	lx2 = lefty.getBoundingClientRect().right;
-	ly1 = lefty.getBoundingClientRect().top;
-	ly2 = lefty.getBoundingClientRect().bottom;
-	rx1 = right.getBoundingClientRect().left;
-	rx2 = right.getBoundingClientRect().right;
+	lx1 = lefty.getBoundingClientRect().left + window.pageXOffset;
+	lx2 = lefty.getBoundingClientRect().right  + window.pageXOffset;
+	ly1 = lefty.getBoundingClientRect().top + window.pageYOffset;
+	ly2 = lefty.getBoundingClientRect().bottom + window.pageYOffset;
+	rx1 = right.getBoundingClientRect().left + window.pageXOffset;
+	rx2 = right.getBoundingClientRect().right + window.pageXOffset;
 	ry1 = right.getBoundingClientRect().top + window.pageYOffset;
 	ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
-	jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
-	jlL = leftJ.getBoundingClientRect().left;
 	jlW = leftJ.getBoundingClientRect().width;
-	jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
-	jrL = rightJ.getBoundingClientRect().left;
-	jrW = rightJ.getBoundingClientRect().width;	
+	jrW = rightJ.getBoundingClientRect().width;
+	jlT = ly1;
+	jlL = (lx1+lx2-jlW)/2;
+	jrT = jlT;
+	jrL = (rx1+rx2-jrW)/2;
 	
 	leftJ.style.left = jlL + 'px';
 	leftJ.style.top = jlT + 'px';
@@ -54,20 +54,20 @@ window.addEventListener("resize",(event) => {
 
 screen.orientation.addEventListener("change", (event) => {
 
-	lx1 = lefty.getBoundingClientRect().left;
-	lx2 = lefty.getBoundingClientRect().right;
-	ly1 = lefty.getBoundingClientRect().top;
-	ly2 = lefty.getBoundingClientRect().bottom;
-	rx1 = right.getBoundingClientRect().left;
-	rx2 = right.getBoundingClientRect().right;
+	lx1 = lefty.getBoundingClientRect().left + window.pageXOffset;
+	lx2 = lefty.getBoundingClientRect().right  + window.pageXOffset;
+	ly1 = lefty.getBoundingClientRect().top + window.pageYOffset;
+	ly2 = lefty.getBoundingClientRect().bottom + window.pageYOffset;
+	rx1 = right.getBoundingClientRect().left + window.pageXOffset;
+	rx2 = right.getBoundingClientRect().right + window.pageXOffset;
 	ry1 = right.getBoundingClientRect().top + window.pageYOffset;
 	ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
-	jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
-	jlL = leftJ.getBoundingClientRect().left;
 	jlW = leftJ.getBoundingClientRect().width;
-	jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
-	jrL = rightJ.getBoundingClientRect().left;
-	jrW = rightJ.getBoundingClientRect().width;	
+	jrW = rightJ.getBoundingClientRect().width;
+	jlT = ly1;
+	jlL = (lx1+lx2-jlW)/2;
+	jrT = jlT;
+	jrL = (rx1+rx2-jrW)/2;
 	
 	leftJ.style.left = jlL + 'px';
 	leftJ.style.top = jlT + 'px';
