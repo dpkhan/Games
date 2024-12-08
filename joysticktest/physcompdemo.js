@@ -8,22 +8,23 @@ const info = document.getElementById("info");
 
    xpos.value = "test";	
 
-var lx1 = lefty.getBoundingClientRect().left;
-var lx2 = lefty.getBoundingClientRect().right;
-var ly1 = lefty.getBoundingClientRect().top;
-var ly2 = lefty.getBoundingClientRect().bottom;
-var rx1 = right.getBoundingClientRect().left;
-var rx2 = right.getBoundingClientRect().right;
+var lx1 = lefty.getBoundingClientRect().left + window.pageXOffset;
+var lx2 = lefty.getBoundingClientRect().right  + window.pageXOffset;
+var ly1 = lefty.getBoundingClientRect().top + window.pageYOffset;
+var ly2 = lefty.getBoundingClientRect().bottom + window.pageYOffset;
+var rx1 = right.getBoundingClientRect().left + window.pageXOffset;
+var rx2 = right.getBoundingClientRect().right + window.pageXOffset;
 var ry1 = right.getBoundingClientRect().top + window.pageYOffset;
 var ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
-var jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
-var jlL = leftJ.getBoundingClientRect().left;
 var jlW = leftJ.getBoundingClientRect().width;
-var jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
-var jrL = rightJ.getBoundingClientRect().left;
-var jrW = rightJ.getBoundingClientRect().width;	
+var jrW = rightJ.getBoundingClientRect().width;
+var jlT = ly1;
+var jlL = (lx1+lx2-jlW)/2;
+var jrT = jlT;
+var jrL = (rx1+rx2-jrW)/2;
+	
 
-	/*
+
 	
 window.addEventListener("resize",(event) => {
 
@@ -49,7 +50,8 @@ window.addEventListener("resize",(event) => {
 
 	
 });
-	
+
+
 screen.orientation.addEventListener("change", (event) => {
 
 	lx1 = lefty.getBoundingClientRect().left;
@@ -74,7 +76,6 @@ screen.orientation.addEventListener("change", (event) => {
 	
 });
 
-*/
 	
 var draggingL = "";
 var lshiftX = 0;
@@ -165,17 +166,17 @@ function moveL(event){
 				  newX = lx1;
 			   }
 
-			   if (newY < ly1){
-				  newY = ly1;
-			   }
+//			   if (newY < ly1){
+//				  newY = ly1;
+//			   }
 
 			   if ((newX + jlW) > lx2){
 				   newX = lx2-jlW;
 			   }
 
-			   if (Y >  ly2){
-				  newY = ly2;
-			   }
+//			   if (Y >  ly2){
+//				  newY = ly2;
+//			   }
 
 			   touches[i].target.style.left = (newX ) + 'px';
 			//   event.target.style.top = newY - shiftY + 'px';
