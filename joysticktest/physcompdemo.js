@@ -246,7 +246,7 @@ function moveR(event){
 			   }
 
 			   touches[i].target.style.left = (newX ) + 'px';
-			   event.target.style.top = newY - shiftY + 'px';
+			   touches[i].target.style.top = newY + 'px';
 			   xpos.value = "xpos :" + X + " newX: " + newX + "\nshifted: " + rshiftX;
 			 }
 		
