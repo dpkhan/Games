@@ -8,23 +8,45 @@ const info = document.getElementById("info");
 
    xpos.value = "test";	
 
-const lx1 = lefty.getBoundingClientRect().left;
-const lx2 = lefty.getBoundingClientRect().right;
-const ly1 = lefty.getBoundingClientRect().top;
-const ly2 = lefty.getBoundingClientRect().bottom;
+var lx1 = lefty.getBoundingClientRect().left;
+var lx2 = lefty.getBoundingClientRect().right;
+var ly1 = lefty.getBoundingClientRect().top;
+var ly2 = lefty.getBoundingClientRect().bottom;
+var rx1 = right.getBoundingClientRect().left;
+var rx2 = right.getBoundingClientRect().right;
+var ry1 = right.getBoundingClientRect().top + window.pageYOffset;
+var ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
+var jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
+var jlL = leftJ.getBoundingClientRect().left;
+var jlW = leftJ.getBoundingClientRect().width;
+var jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
+var jrL = rightJ.getBoundingClientRect().left;
+var jrW = rightJ.getBoundingClientRect().width;	
 
-const rx1 = right.getBoundingClientRect().left;
-const rx2 = right.getBoundingClientRect().right;
-const ry1 = right.getBoundingClientRect().top + window.pageYOffset;
-const ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
 	
-const jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
-const jlL = leftJ.getBoundingClientRect().left;
-const jlW = leftJ.getBoundingClientRect().width;
+window.addEventListener("resize",(event) => {
 
-const jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
-const jrL = rightJ.getBoundingClientRect().left;
-const jrW = rightJ.getBoundingClientRect().width;	
+	lx1 = lefty.getBoundingClientRect().left;
+	lx2 = lefty.getBoundingClientRect().right;
+	ly1 = lefty.getBoundingClientRect().top;
+	ly2 = lefty.getBoundingClientRect().bottom;
+	rx1 = right.getBoundingClientRect().left;
+	rx2 = right.getBoundingClientRect().right;
+	ry1 = right.getBoundingClientRect().top + window.pageYOffset;
+	ry2 = right.getBoundingClientRect().bottom + window.pageYOffset;	
+	jlT = leftJ.getBoundingClientRect().top + window.pageYOffset;
+	jlL = leftJ.getBoundingClientRect().left;
+	jlW = leftJ.getBoundingClientRect().width;
+	jrT = rightJ.getBoundingClientRect().top + window.pageYOffset;
+	jrL = rightJ.getBoundingClientRect().left;
+	jrW = rightJ.getBoundingClientRect().width;	
+	
+	leftJ.style.left = jlL + 'px';
+	rightJ.style.left = jrL + 'px';
+	rightJ.style.top = jrT + 'px';
+
+	
+});	
 	
 var draggingL = "";
 var lshiftX = 0;
