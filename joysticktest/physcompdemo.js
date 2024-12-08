@@ -28,8 +28,13 @@ var jrL = (rx1+rx2-jrW)/2;
 	
 window.addEventListener("resize",(event) => {
 
-	lx1 = lefty.getBoundingClientRect().left + window.pageXOffset;
-	lx2 = lefty.getBoundingClientRect().right  + window.pageXOffset;
+	lx1 = lefty.getBoundingClientRect().left;
+	lx2 = lefty.getBoundingClientRect().right;
+	jlL = (lx1+lx2-jlW)/2;
+	lx1 = lx1 + window.pageXOffset;
+	lx2 = lx2 + window.pageXOffset;
+	jlL = jlL + window.pageXOffset;
+
 	ly1 = lefty.getBoundingClientRect().top + window.pageYOffset;
 	ly2 = lefty.getBoundingClientRect().bottom + window.pageYOffset;
 	rx1 = right.getBoundingClientRect().left + window.pageXOffset;
@@ -39,7 +44,6 @@ window.addEventListener("resize",(event) => {
 	jlW = leftJ.getBoundingClientRect().width;
 	jrW = rightJ.getBoundingClientRect().width;
 	jlT = ly1;
-	jlL = (lx1+lx2-jlW)/2;
 	jrT = jlT;
 	jrL = (rx1+rx2-jrW)/2;
 	
@@ -47,6 +51,9 @@ window.addEventListener("resize",(event) => {
 	leftJ.style.top = jlT + 'px';
 	rightJ.style.left = jrL + 'px';
 	rightJ.style.top = jrT + 'px';
+	
+		xpos.value = "top: " + jlT + " left: " + jlL;
+
 
 	
 });
@@ -67,12 +74,14 @@ screen.orientation.addEventListener("change", (event) => {
 	jlT = ly1;
 	jlL = (lx1+lx2-jlW)/2;
 	jrT = jlT;
-	jrL = (rx1+rx2-jrW)/2;
+	jrL = (rx1+rx2-jlW)/2;
 	
 	leftJ.style.left = jlL + 'px';
 	leftJ.style.top = jlT + 'px';
 	rightJ.style.left = jrL + 'px';
 	rightJ.style.top = jrT + 'px';
+	
+	xpos.value = "top: " + jlT + " left: " + jlL;
 	
 });
 
