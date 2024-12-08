@@ -243,7 +243,7 @@ function moveR(event){
 
 			   if ((newY + jrW)>  ry2){
 				  newY = ry2-jrW;
-
+			   }
 			   touches[i].target.style.left = (newX ) + 'px';
 			   touches[i].target.style.top = newY + 'px';
 			   xpos.value = "xpos :" + X + " newX: " + newX + "\nshifted: " + rshiftX;
