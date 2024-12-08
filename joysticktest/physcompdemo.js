@@ -202,11 +202,55 @@ function endL(event){
 }
 
 function startR(event){
+	event.preventDefault();
+	const touches = event.changedTouches;
+	for (let i = 0; i < touches.length; i++) {
+		if (touches[i].target == rightJ){
+			var rect = touches[i].target.getBoundingClientRect();
+			rshiftX = touches[i].clientX - rect.left; //x position within the element.
+			rshiftY = touches[i].clientY - rect.top;  //y position within the element.
+
+			draggingR = touches[i].target;
+		}
+	}
 	
 }
 
 function moveR(event){
-	
+	event.preventDefault();
+	xpos.value = "touch move";
+	const touches = event.changedTouches;
+	for (let i = 0; i < touches.length; i++) {
+		if (touches[i].target == rightJ){
+
+			  var rect = touches[i].target.getBoundingClientRect();
+			  var X = touches[i].pageX;
+			  var Y = touches[i].pageY;
+			  var newX = X-rshiftX;
+			  var newY = Y-rshiftY;
+
+			   if (newX < rx1){
+				  newX = rx1;
+			   }
+
+			   if (newY < ry1){
+				  newY = ry1;
+			   }
+
+			   if ((newX + jrW) > rx2){
+				   newX = rx2-jrW;
+			   }
+
+			   if (Y >  ry2){
+				  newY = ry2;
+			   }
+
+			   touches[i].target.style.left = (newX ) + 'px';
+			   event.target.style.top = newY - shiftY + 'px';
+			   xpos.value = "xpos :" + X + " newX: " + newX + "\nshifted: " + rshiftX;
+			 }
+		
+		}	
 }
 
 function endR(event){
