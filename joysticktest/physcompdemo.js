@@ -238,12 +238,11 @@ function moveR(event){
 			   }
 
 			   if ((newX + jrW) > rx2){
-				   newX = rx2-jrW;
+				   newX = rx2-jrWX;
 			   }
 
-			   if (Y >  ry2){
-				  newY = ry2;
-			   }
+			   if ((newY + jrW)>  ry2){
+				  newY = ry2-jrW;
 
 			   touches[i].target.style.left = (newX ) + 'px';
 			   touches[i].target.style.top = newY + 'px';
