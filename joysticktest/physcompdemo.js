@@ -84,7 +84,6 @@ function rightHandlers(name) {
 }
 	
 function startL(event){
-	info.value="touch1";
 	event.preventDefault();
 	const touches = event.changedTouches;
 //	xpos.value = "touch start";
@@ -95,7 +94,6 @@ function startL(event){
 			lshiftY = touches[i].clientY - rect.top;  //y position within the element.
 
 			draggingL = touches[i].target;
-			xpos.value = "touch ids";
 		}
 	}
 }
@@ -139,7 +137,8 @@ function moveL(event){
 }
 
 function endL(event){
-	
+	draggingL = "";
+	leftJ.style.left = jlL + 'px';
 }
 
 function startR(event){
